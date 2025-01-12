@@ -187,7 +187,7 @@
     const canvas = document.getElementById('screenCanvas');
     const ctx = canvas.getContext('2d');
     const wsPort = {{ .WebSocketPort }};
-    const wsUrl = `wss://${window.location.hostname}:${wsPort}/SimulateDesktop`;
+    const wsUrl = `wss://${window.location.host}/SimulateDesktop`;
     const ws = new WebSocket(wsUrl);
     ws.binaryType = 'arraybuffer';
     const switchScreenButton = document.getElementById('switchScreenButton');
