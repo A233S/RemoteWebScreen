@@ -1,4 +1,7 @@
-# RemoteWebScreen
+# RemoteWebScreen 修改
+
+## 主要修改
+- 让 HTTPS 和 WebSocket 在同一个端口上共存，这样方便内网穿透使用。
 
 ## 项目概述
 
